@@ -1,5 +1,5 @@
 # NOTE
-This repo is a part of a collaborative series of repos that explores the ability of multiple products to characterize sagebrush habitat: 1) multispectral (this repo), 2) hyperspectral (*fill in Kelsey's repo*) and 3) <a href='https://github.com/sarahmjaffe/sagebrush-ecosystem-modeling'>lidar</a>).  Using easy to follow, reproducible workflows, this series of repos is designed assess which products land and wildlife managers might want to further invest time and possible money into for larger-scale surveys where *insitu* isn't sufficient.    
+This repo is a part of a collaborative series of repos that explores the ability of multiple products to characterize sagebrush habitat: 1) multispectral (this repo), 2) hyperspectral (*fill in Kelsey's repo*) and 3) <a href='https://github.com/sarahmjaffe/sagebrush-ecosystem-modeling'>lidar</a>.  Using easy to follow, reproducible workflows, this series of repos is designed to assess which products land and wildlife managers might want to invest time and possible money into for larger-scale surveys where *insitu* isn't sufficient.    
 
 # Sagebrush Ecosystem Modeling with Landsat 8
 
@@ -29,6 +29,6 @@ Other sources that contributed code or ideas (most of which can be found forked 
 
 3) Joseph McGlinchy's Earth Lab <a href='https://github.com/earthlab/neon-headwall-data'>repo</a>: Unsupervised spectral unmixing
 
-3) K. Arthur Endsley's <a href='https://github.com/arthur-e/unmixing/tree/master/docs'>repo</a>: Supervised spectral unmixing 
+3) K. Arthur Endsley's <a href='https://github.com/arthur-e/unmixing/tree/master/docs'>repo</a>: Supervised spectral unmixing
 
 A tremendous thank you to all involved directly or indirectly.
