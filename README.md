@@ -15,16 +15,20 @@ Sagebrush ecosystems cover much of the western United States and parts of southw
 This repository offers an alternative to traditional land monitoring strategies through its unique focus on and analyses of sagebrush ecosystems. We expect this code to be useful to other analysts because of its reproducible foundation, which will allow it to be applied to other research areas. While we are using it here to examine sagebrush habitat, the same processes can be run on other sites covered by the aforementioned agencies, allowing versatile analyses of vegetation structure and composition across the United States.
 
 # Workflow Requirements
-First, all notebooks will require the packages in the landsat-unmixing-env.yml.  This environment can be downloaded and activated locally, but be forewarned, is is quite a large file.  
+First, all notebooks will require the packages in the landsat-unmixing-env.yml.  This environment can be downloaded and activated locally, but be forewarned, it is quite a large file.  
 
 Second, the workflow of most immediate interest is the unsupervised spectral unmixing.  This notebook (#3 in the table below) is completely reproducible as is, however, there are many other notebooks that may be of interest.  
 
 At the moment, please consider this repo a work-in-progress.  It will be updated regularly.  Plans include making sure all examples are 100% reproducible, making all notebooks PEP8 compliant, processes and results thoroughly described through markdown cells, and adding several needed functions.  
 
 ## Data Sources
-Data is sourced from the National Ecological Observatory Network's <a href='https://www.neonscience.org/'>(NEON)</a>, Landsat 8 images courtesy of <a href='https://earthexplorer.usgs.gov/'>U.S. Geological Survey</a> and their <a href='https://earthexplorer.usgs.gov/Spectral'>Spectral Library Version 7</a>.  See table below for more details.
+Data is sourced from the National Ecological Observatory Network's <a href='https://www.neonscience.org/data/about-data/spatial-data-maps'>(NEON)</a>, Landsat 8 images courtesy of <a href='https://earthexplorer.usgs.gov/'>U.S. Geological Survey</a> and their <a href='https://earthexplorer.usgs.gov/Spectral'>Spectral Library Version 7</a>.  See table below for more details.
 
-INSERT TABLE
+| SOURCE                	| DATA AND DATA TYPE                                                                	|
+|-----------------------	|-----------------------------------------------------------------------------------	|
+| NEON                  	| AOI shapefile(s)                                                                  	|
+| USGS EARTH EXPLORER   	| Level-1 and Level-2 Landsat 8 raster scenes (30m<sup>2</sup> resolution, 7 bands) 	|
+| USGS Spectral Library 	| Spectral signature text file(s)                                                   	|
 
 ## Repo Organization
 
