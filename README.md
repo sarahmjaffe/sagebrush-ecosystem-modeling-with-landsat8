@@ -16,3 +16,17 @@ This repository offers an alternative to traditional land monitoring strategies 
 
 # Workflow Requirements
 ## Tools and Packages
+
+
+# Acknowledgements
+This series of repos is a collaborative effort between NatureServe, Kelsey Beckrich and Sarah Jaffe.  It was completed as a part of University of Colorado Boulder's Earth Analytics course series, and was guided by Dr. Jenny Palomino, data science faculty at University of Colorado Boulder's Earth Lab.
+
+Other sources that contributed code or ideas (most of which can be found forked in this repo):
+
+1) Bruno Ruas de Pinho's <a href='http://geologyandpython.com/'>blog</a>: Automating Landsat 8 retrieval and TOA calculations.
+
+2) Katy Sill's flood detection <a href='https://github.com/katysill/flood-detection'>repo</a>: Unsupervised kmeans classification
+
+3) Joseph McGlinchy's Earth Lab <a href='https://github.com/earthlab/neon-headwall-data'>repo</a>
+
+A tremendous thank you to all involved directly or indirectly.
