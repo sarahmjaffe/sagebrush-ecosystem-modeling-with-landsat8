@@ -1,0 +1,123 @@
+# CELL 1:
+# Supervised Spectral Unmixing with Landsat 8
+
+This code will walk through the workflow process of arthur-e's github repo example: https://github.com/arthur-e/unmixing/blob/master/docs/Example_Spatially_Adaptive_Spectral_Mixture_Analysis_SASMA.ipynb
+
+For the first run, I will use a pre-downloaded landsat scene with an associated AOI of the cold springs fire in Colorado.
+
+######
+# Import Packages
+import os
+from glob import glob
+
+import geopandas as gpd
+from shapely.geometry import box
+import numpy as np
+from matplotlib import pyplot as plt, cm
+from matplotlib.colors import ListedColormap
+import rasterio as rio
+from rasterio.mask import mask
+from rasterio.plot import plotting_extent
+
+import earthpy as et
+import earthpy.spatial as es
+import earthpy.plot as ep
+
+from unmixing.utils import as_array
+from unmixing.utils import binary_mask
+from unmixing.utils import subarray
+from unmixing.lsma import FCLSAbundanceMapper
+from unmixing.sasma import concat_endmember_arrays
+from unmixing.transform import mnf_rotation
+from unmixing.visualize import FeatureSpace
+
+# #######################NOT WORKING: INSISTING IT IS A .PY FILES###############
+# # Make ONAQ site info retrievable
+# %run ./kessb-NEON-scripts/data_grabber.ipynb
+#####
+
+#####
+## Designating stacked raster AOI tiffs for unmixing
+#####
+
+#####
+# # Get data and set working and outputs directory
+# url='https://ndownloader.figshare.com/files/23372924'
+# et.data.get_data(url=url, replace=True)
+
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+output_dir = os.path.join("data", "Landsat", "outputs")
+if os.path.isdir(output_dir) == False:
+    os.mkdir(output_dir)
+
+raster_out_path = os.path.join(output_dir, "raster.tiff")
+#####
+
+#####
+#############################AUTOMATION NOT ACCESSING DATA GRABBER#######################
+# Create path to shapefile
+terrestrial_sites_path = os.path.join(
+    'data', 'earthpy-downloads',
+    'Field_Sampling_Boundaries_2020',
+    'terrestrialSamplingBoundaries.shp')
+
+# Retrieving the boundaries of ONAQ site
+NEON_boundaries = gpd.read_file(terrestrial_sites_path)
+boundaries_indexed = NEON_boundaries.set_index(['siteID'])
+
+site_bounds = boundaries_indexed.loc[['ONAQ']]
+site_bounds.reset_index(inplace=True)
+
+site_bounds
+#######
+
+#####
+# Create bands path
+l8_onaq_path = glob(os.path.join("data",
+                    "earthpy-downloads",
+                    "LC080380322019061001T1-SC20200623214804",
+                    "*band*.tif"))
+
+# Sort bands in numeric order
+l8_onaq_path.sort()
+
+# Import, stack onaq rasters
+l8_onaq, onaq_meta = es.stack(l8_onaq_path, nodata=-9999.0)
+
+# Create landsat extent
+landsat_extent = plotting_extent(l8_onaq[0],
+                                 onaq_meta["transform"])
+
+#####
+
+#####
+# Visualize band data without -9999
+ep.hist(l8_onaq,
+        title=["Band 1", "Band 2", "Band 3",
+               "Band 4", "Band 5", "Band 6",
+               "Band 7"])
+######
+
+######
+# Assure crs of aoi and raster are same and crop
+print('site bounds crs: ', site_bounds.crs)
+print('landsat bounds crs: 32612')
+######################NOT SURE WHY NOT WORKING####################
+# print('landsat crs: ', extent_landsat.crs)
+
+# Reprojection of AOI shapefile
+site_bounds_reproj = site_bounds.to_crs(32612)
+print('site bounds reprojected crs: ', site_bounds_reproj.crs)
+
+# Crop stack extent
+landsat_aoi = es.crop_all(l8_onaq, raster_out_path, site_bounds_reproj)
+#######
+
+######
+# Plot new raster AOI extent
+######
+
+#######
+## Begin unmixing process with stacked raster AOI
+########
