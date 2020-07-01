@@ -27,6 +27,8 @@ Other sources that contributed code or ideas (most of which can be found forked 
 
 2) Katy Sill's flood detection <a href='https://github.com/katysill/flood-detection'>repo</a>: Unsupervised kmeans classification
 
-3) Joseph McGlinchy's Earth Lab <a href='https://github.com/earthlab/neon-headwall-data'>repo</a>
+3) Joseph McGlinchy's Earth Lab <a href='https://github.com/earthlab/neon-headwall-data'>repo</a>: Unsupervised spectral unmixing
+
+3) K. Arthur Endsley's <a href='https://github.com/arthur-e/unmixing/tree/master/docs'>repo</a>: Supervised spectral unmixing 
 
 A tremendous thank you to all involved directly or indirectly.
