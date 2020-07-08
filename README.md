@@ -1,5 +1,5 @@
 # NOTE
-This repo is a part of a collaborative series of repos that explores the ability of multiple products to characterize sagebrush habitat: 1) multispectral (this repo), 2) hyperspectral (*fill in Kelsey's repo*) and 3) <a href='https://github.com/sarahmjaffe/sagebrush-ecosystem-modeling'>lidar</a>.  Using easy to follow, reproducible workflows, this series of repos is designed to assess which products land and wildlife managers might want to invest time and possible money into for larger-scale surveys where *insitu* isn't sufficient.    
+This repo is a part of a collaborative series of repos that explores the ability of multiple products to characterize sagebrush habitat: 1) multispectral (this repo), 2) <a href='https://github.com/kessb/sagebrush-ecosystem-modeling-hyperspectral/'>hyperspectral</a> and 3) <a href='https://github.com/sarahmjaffe/sagebrush-ecosystem-modeling'>lidar</a>.  Using easy to follow, reproducible workflows, this series of repos is designed to assess which products land and wildlife managers might want to invest time and possible money into for larger-scale surveys where *insitu* isn't sufficient.    
 
 # Sagebrush Ecosystem Modeling with Landsat 8
 
@@ -17,18 +17,9 @@ This repository offers an alternative to traditional land monitoring strategies 
 # Workflow Requirements
 First, all notebooks will require the packages in the landsat-unmixing-env.yml.  This environment can be downloaded and activated locally, but be forewarned, it is quite a large file.  
 
-Second, the workflow of most immediate interest is the unsupervised spectral unmixing.  This notebook (#3 in the table below) is completely reproducible as is, however, there are many other notebooks that may be of interest.  
+Second, the workflow of most immediate interest is the unsupervised spectral unmixing.  This notebook (#3 in the Repo Organization table below) is completely reproducible as is, however, there are many other notebooks that may be of interest.  
 
 At the moment, please consider this repo a work-in-progress.  It will be updated regularly.  Plans include making sure all examples are 100% reproducible, making all notebooks PEP8 compliant, processes and results thoroughly described through markdown cells, and adding several needed functions.  
-
-## Data Sources
-Data is sourced from the National Ecological Observatory Network's <a href='https://www.neonscience.org/data/about-data/spatial-data-maps'>(NEON)</a>, Landsat 8 images courtesy of <a href='https://earthexplorer.usgs.gov/'>U.S. Geological Survey</a> and their <a href='https://earthexplorer.usgs.gov/Spectral'>Spectral Library Version 7</a>.  See table below for more details.
-
-| SOURCE                	| DATA AND DATA TYPE                                                                	|
-|-----------------------	|-----------------------------------------------------------------------------------	|
-| NEON                  	| AOI shapefile(s)                                                                  	|
-| USGS EARTH EXPLORER   	| Level-1 and Level-2 Landsat 8 raster scenes (30m<sup>2</sup> resolution, 7 bands) 	|
-| USGS Spectral Library 	| Spectral signature text file(s)                                                   	|
 
 ## Repo Organization
 
@@ -43,6 +34,15 @@ Data is sourced from the National Ecological Observatory Network's <a href='http
 | notebooks/testing: Workflows still being tested and worked through                                            	| Ignore these for now.  Once working, they will be moved to the appropriate directory 	| NA                                                                                                                                                                                     	| NA                                                       	|
 
 
+## Data Sources
+Data is sourced from the National Ecological Observatory Network's <a href='https://www.neonscience.org/data/about-data/spatial-data-maps'>(NEON)</a>, Landsat 8 images courtesy of <a href='https://earthexplorer.usgs.gov/'>U.S. Geological Survey</a> and their <a href='https://earthexplorer.usgs.gov/Spectral'>Spectral Library Version 7</a>.  See table below for more details.
+
+| SOURCE                	| PURPOSE                              	| DATA TYPE                                           	|
+|-----------------------	|--------------------------------------	|-----------------------------------------------------	|
+| NEON                  	| AOIs                                 	| shapefiles (polygons)                               	|
+| USGS EARTH EXPLORER   	| Level-1 and Level-2 Landsat 8 scenes 	| GeoDataFrames (7 bands, 30m<sup>2</sup> resolution) 	|
+| USGS Spectral Library 	| Spectral signatures                  	| text files                                          	|
+|                       	|                                      	|                                                     	|
 
 # Acknowledgements
 This series of repos is a collaborative effort between NatureServe, Kelsey Beckrich and Sarah Jaffe.  It was completed as a part of University of Colorado Boulder's Earth Analytics course series, and was guided by Dr. Jenny Palomino, data science faculty at University of Colorado Boulder's Earth Lab.
